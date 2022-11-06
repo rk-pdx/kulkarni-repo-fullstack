@@ -4,8 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Exercise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <!-- Add your code here -->
+    <body>
+      <form action='/submit' method='post'>
+          <label for='name'>Name:</label> <br>
+          <input type='text' id='name' name='name'> <br>
+          <label for='email'>Email:</label> <br>
+          <input type='email' id='email' name='email'> <br>
+          <label for='comments' id='comments' name='comments'>Comments:</label><br>
+          <input type='textarea' id='comments' name='comments'><br>
+          <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+          <label class="form-check-label" for="newsletter">Sign up for the newsletter</label>
+          <input type='submit'> <br>
+      </form>
   </body>
 </html>
