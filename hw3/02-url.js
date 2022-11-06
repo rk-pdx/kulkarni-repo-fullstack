@@ -1,6 +1,6 @@
-const http = require('http');
-
-const port = process.env.PORT || 5000;
+const http = require(`http`);
+const fs = require(`fs`);
+const port = process.env.PORT || 5001;
 
 const server = http.createServer((req, res) => {
   const routes = [
@@ -31,8 +31,23 @@ const server = http.createServer((req, res) => {
 
     res.write(`<ul> ${routeResults} </ul>`);
   }
-
   // Add your code here
+  else {
+    let x = url.toString().split(`/`)[3].split(`?`)[1].split(`&`);
+    
+    x.forEach((element, index, x) => {
+      x[index] = element.split(`=`);
+    });
+   
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<table border="1"');
+
+    for (let i = 0; i < x.length; i++) {
+      res.write(`<tr><td>${x[i][0]}</td><td>${x[i][1]}</td></tr>`);
+    }
+    
+    res.write('</table>');
+   }
 
   res.end();
 });
